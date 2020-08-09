@@ -1,5 +1,5 @@
 {
-  "name": "mktp-tools-v02-lufabaz",
+  "name": "app-mktp-tools-v0.2-lufabaz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,23 +9,14 @@
     "materialize-css": "1.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-scripts": "3.4.1",
-    "yarn": "^1.22.4",
-    "yarn-install": "^1.0.0",
-    "webpack": "^4.44.1"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install && npm run build && yarn",
-    "dev": "webpack-dev-server --devtool eval --content-base build/ --colors --hot",
-    "postinstall": "webpack -p --config webpack.prod.config.js --progress"
-  },
-  "engines": {
-    "node": "12.16.2",
-    "npm": "6.14.4"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,7 +33,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "webpack-cli": "^3.3.12"
+  "engines": {
+    "node": "12.16.2"
   }
 }
