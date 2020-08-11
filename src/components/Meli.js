@@ -1,19 +1,22 @@
 import React, { useState } from 'react'
 import EanResult from './meli/EanResult'
 import EanInput from './meli/EanInput'
-import Items from './meli/Items'
+import InputItems from './meli/InputItems'
+import ResultItems from './meli/ResultItems'
 import api from '../Services/apiMeli.js'
 
 export default function Meli() {
   const [eanTypeResult, setEanTypeResult] = useState('')
   const [eanLengthResult, setEanLengthResult] = useState('')
   const [eanValidResult, setEanValidResult] = useState('')
+  const [itemsGetResult, setItemsGetResult] = useState('')
 
   const handleFormSubmitItem = async (event) => {
 
     /* Realiza a requisição na API do Meli através do módulo /Services/apiMeli.js */
     try {
       let jsonItem = await api.getItems(event)
+      setItemsGetResult(jsonItem)
       console.log(jsonItem)
 
     } catch (err) {
@@ -45,10 +48,10 @@ export default function Meli() {
 
   return (
     <div>
-      {/* Flex (lado a lado) */}
+    {/* Flex (lado a lado) */}
       <div className="row" style={styles.flexRow}>
+        {/* Consulta EAN */}
         <div style={styles.flexRowTwo}>
-          {/* Consulta EAN */}
           <div>
             <EanInput
               onInputEan={handleFormSubmitEan}
@@ -70,7 +73,10 @@ export default function Meli() {
 
       {/* Consulta Items */}
       <div>
-        <Items onInputItem={handleFormSubmitItem} />
+        <InputItems onInputItem={handleFormSubmitItem} />
+      </div>
+      <div>
+        {itemsGetResult && <ResultItems onGetResult={itemsGetResult} />}
       </div>
     </div>
   )
