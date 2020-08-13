@@ -1,6 +1,6 @@
-const replacer = (_key, value) => (value === null ? undefined : value)
+const replacer = (_key: any, value: null) => (value === null ? undefined : value)
 
-const stringify = obj => {
+const stringify = (obj: any) => {
   JSON.stringify(obj, replacer)
 }
 
