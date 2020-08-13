@@ -21,6 +21,8 @@ const getItems = async (item,token) => {
     fullToken = `?access_token=${token}`
   }
 
+  console.log(`${uriMeli}/items/${item}/${fullToken}`)
+
   try {
     const data = await fetch(`${uriMeli}/items/${item}/${fullToken}`)
     const json = await data.json()
@@ -30,6 +32,7 @@ const getItems = async (item,token) => {
     console.log(err)    
     return err
   }
+
 }
 
 export default { getEanValidator, getItems }

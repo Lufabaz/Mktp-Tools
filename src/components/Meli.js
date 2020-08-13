@@ -4,6 +4,7 @@ import EanInput from './meli/EanInput'
 import InputItems from './meli/InputItems'
 import ResultItems from './meli/ResultItems'
 import api from '../Services/apiMeli.js'
+import * as pretty from '../Helpers/jsonBeauty.ts'
 
 export default function Meli() {
   const [eanTypeResult, setEanTypeResult] = useState('')
@@ -11,14 +12,14 @@ export default function Meli() {
   const [eanValidResult, setEanValidResult] = useState('')
   const [itemsGetResult, setItemsGetResult] = useState('')
 
-  const handleFormSubmitItem = async (event) => {
+  const handleFormSubmitItem = async (item,token) => {
 
     /* Realiza a requisição na API do Meli através do módulo /Services/apiMeli.js */
     try {
-      let jsonItem = await api.getItems(event)
-      setItemsGetResult(jsonItem)
-      console.log(jsonItem)
-
+      let jsonItem = await api.getItems(item,token)
+      let stringPretty = pretty.prettyJson(jsonItem)
+      let highligth = pretty.syntaxHighlight(stringPretty)
+      setItemsGetResult(stringPretty)
     } catch (err) {
       console.log(`Erro ao consultar EAN. Erro: ${err}`)
     }

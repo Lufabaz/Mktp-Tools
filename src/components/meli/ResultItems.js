@@ -1,16 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
 import * as pretty from '../../Helpers/jsonBeauty.ts'
 
 export default function ResultItems({onGetResult}) {
-    let stringPretty = pretty.prettyJson(onGetResult)
+/*     let stringPretty = pretty.prettyJson(onGetResult)
     let highligth = pretty.syntaxHighlight(stringPretty)
-    console.log(highligth)
+    let convertToString = JSON.stringify(highligth)
+    console.log(highligth) */
 
     return (
         <div>
-            {<div style={styles.div}>
-                {highligth}
-            </div>}
+            <div style={styles.div}>
+                {onGetResult}
+            </div>
         </div>
     )
 }

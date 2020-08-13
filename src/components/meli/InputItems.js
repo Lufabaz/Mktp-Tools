@@ -5,15 +5,16 @@ export default function InputItems({onInputItem}) {
     const [itemInputToken, setItemInputToken] = useState("")
 
     const handleInputItem = ({target}) => {
-        setItemInputNumber(target.value)
-        console.log(target.value)
-        /* onInputItem(target.value) */
+        if (target.id === 'item') {
+            setItemInputNumber(target.value)
+        } else if (target.id === 'token') {
+            setItemInputToken(target.value)
+        }
     }
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        console.log(itemInputNumber)
-        onInputItem(itemInputNumber)
+        onInputItem(itemInputNumber,itemInputToken)
     }
 
 
