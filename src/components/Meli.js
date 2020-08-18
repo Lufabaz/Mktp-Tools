@@ -49,6 +49,16 @@ export default function Meli() {
 
   return (
     <div>
+    <div style={styles.buttonsMenu}>
+      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small disabled">Consultas:</a>
+      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Código de Barras</a>
+      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Itens</a>
+      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Categorias</a>
+      {/* <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Atributos</a>
+      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Pedidos</a> */}
+    </div>
+       
+
     {/* Flex (lado a lado) */}
       <div className="row" style={styles.flexRow}>
         {/* Consulta EAN */}
@@ -124,6 +134,10 @@ const styles = {
     marginLeft: '30px',
   },
   divInput: {
-    marginLeft: '20px',
+    marginLeft: '30px',
   },
+  buttonsMenu: {
+    marginLeft: '20px',
+    marginTop: '15px',
+  }
 }

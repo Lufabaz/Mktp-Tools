@@ -7,6 +7,8 @@ export default function ResultItems({onGetResult}) {
     let convertToString = JSON.stringify(highligth)
     console.log(highligth) */
 
+    console.log(onGetResult)
+
     return (
         <div>
             <div style={styles.div}>
