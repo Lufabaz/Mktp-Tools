@@ -6,7 +6,7 @@ import ResultItems from './meli/ResultItems'
 import api from '../Services/apiMeli.js'
 import * as pretty from '../Helpers/jsonBeauty.ts'
 
-export default function Meli() {
+export default function Meli({onClickResource}) {
   const [eanTypeResult, setEanTypeResult] = useState('')
   const [eanLengthResult, setEanLengthResult] = useState('')
   const [eanValidResult, setEanValidResult] = useState('')
@@ -47,15 +47,23 @@ export default function Meli() {
     setEanLengthResult('')
   }
 
+  const clickResource = (event) => {
+    event.preventDefault()
+    let flag = true
+    if (event.target.id === "back") {
+      flag = false
+    }
+    onClickResource(event.target.id,flag)
+  }
+
   return (
     <div>
     <div style={styles.buttonsMenu}>
-      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small disabled">Consultas:</a>
-      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Código de Barras</a>
-      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Itens</a>
-      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Categorias</a>
-      {/* <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Atributos</a>
-      <a style={{marginRight: '10px', marginBottom: '5px'}} className="waves-effect waves-light btn-small">Pedidos</a> */}
+      <a style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Consultas:</a>
+      <a style={styles.buttonsItems} className="waves-effect waves-light btn-small">Código de Barras</a>
+      <a style={styles.buttonsItems} className="waves-effect waves-light btn-small">Itens</a>
+      <a style={styles.buttonsItems} className="waves-effect waves-light btn-small">Categorias</a>
+      <a id="back" href="" onClick={clickResource} style={styles.buttonsItems} className="blue waves-effect waves-light btn-small">Voltar</a>
     </div>
        
 
@@ -139,5 +147,9 @@ const styles = {
   buttonsMenu: {
     marginLeft: '20px',
     marginTop: '15px',
+  },
+  buttonsItems: {
+    marginRight: '10px',
+    marginBottom: '5px'
   }
 }
