@@ -1,5 +1,5 @@
 import React from 'react'
-import * as pretty from '../../Helpers/jsonBeauty.ts'
+/* import * as pretty from '../../Helpers/jsonBeauty.ts' */
 
 export default function ResultItems({onGetResult}) {
 /*     let stringPretty = pretty.prettyJson(onGetResult)

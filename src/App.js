@@ -13,7 +13,7 @@ export default function App() {
       setActiveMeli(flag)
       setActiveCnova(false)
       setActiveMagalu(false)
-    } else if (id === "cnova") {
+    } /* else if (id === "cnova") {
       setActiveCnova(flag)
       setActiveMeli(false)
       setActiveMagalu(false)
@@ -21,10 +21,16 @@ export default function App() {
       setActiveMagalu(flag)
       setActiveCnova(false)
       setActiveMeli(false)
-    } else if (id === "back") {
+    }*/
+      else if (id === "back") {
       setActiveMagalu(false)
       setActiveCnova(false)
       setActiveMeli(false)
+    } else {
+      setActiveMagalu(false)
+      setActiveCnova(false)
+      setActiveMeli(false)
+      window.alert("As ferramentas para esse marketplace ainda estão em desenvolvimento.")
     }
   }
 

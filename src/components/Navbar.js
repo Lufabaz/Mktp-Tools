@@ -1,21 +1,22 @@
 import React from 'react'
 
 export default function Navbar({onClickResource}) {
+  let homePage = "http://localhost:3000/" || "https://mktp-tools.herokuapp.com/"
 
-  const clickResource = (event) => {
+/*   const clickResource = (event) => {
     event.preventDefault()
     const flag = true
     onClickResource(event.target.id,flag)
-  }
+  } */
 
   return (
     <div>
       <nav style={styles.navAll}>
         <div style={{ marginLeft: '30px', marginRight: '30px' }} className="nav-wrapper">
-          <a style={styles.navLogo} href="http://localhost:3000/" className="left brand-logo">
+          <a style={styles.navLogo} href={homePage} className="center brand-logo">
             Mktp-Tools
           </a>
-          <ul style={styles.navItems} id="nav-mobile" className="right brand-logo">
+          {/* <ul style={styles.navItems} id="nav-mobile" className="right brand-logo">
             <li>
               <a id="meli" href="" onClick={clickResource}>Meli</a>
             </li>
@@ -25,7 +26,7 @@ export default function Navbar({onClickResource}) {
             <li>
               <a id="magalu" href="" onClick={clickResource}>Magalu</a>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </nav>
     </div>

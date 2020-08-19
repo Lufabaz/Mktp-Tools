@@ -13,12 +13,12 @@ export default function Preloader({onClickResource}) {
             <div style={styles.divLoader}>
             <div>Selecione um marketplace:</div>
             <div style={styles.buttonsMenu}>
-              <a id="meli" href="" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Meli</a>
-              <a id="magalu" href="" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Magalu</a>
-              <a id="cnova" href="" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Cnova</a>
-              <a id="carrefour" href="" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Carrefour</a>
-              <a id="re" href="" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Ricardo Eletro</a>
-              <a id="zoom" href="" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Zoom</a>
+              <button id="meli" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Meli</button>
+              <button id="magalu" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Magalu</button>
+              <button id="cnova" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Cnova</button>
+              <button id="carrefour" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Carrefour</button>
+              <button id="re" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Ricardo Eletro</button>
+              <button id="zoom" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Zoom</button>
             </div>
             <div style={{width: '60%', marginTop: '15px'}}>
                 <div className="progress">
