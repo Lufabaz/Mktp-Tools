@@ -76,18 +76,26 @@ export default function Meli({onClickResource}) {
 
   return (
     <div>
-    <div style={styles.buttonsMenu}>
+ 
+    <div style={styles.buttonsItemsConsult}>
       <button style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Consultas:</button>
+      <button id="back" onClick={clickResource} style={styles.buttonsItems} className="blue waves-effect waves-light btn-small">Voltar</button>
+    </div>
+      
+    <div style={styles.buttonsMenu}>
       <button id="barcode" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Código de Barras</button>
       <button id="items" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Itens</button>
       <button id="categ" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Categorias</button>
-      <button id="back" onClick={clickResource} style={styles.buttonsItems} className="blue waves-effect waves-light btn-small">Voltar</button>
     </div>
        
 
-    {/* Flex (lado a lado) */}
-      {barcodeComponent && <div className="row" style={styles.flexRow}>
+      {/* Flex (lado a lado) */}
+      {barcodeComponent && <div style={styles.flexRow}>
         {/* Consulta EAN */}
+        <div>
+          <h1 style={styles.h1Consult}>Consulta Código de Barras:</h1>
+        </div>
+
         <div style={styles.flexRowTwo}>
           <div>
             <EanInput onInputEan={handleFormSubmitEan} onEmptyInput={clearResultEmpty} />
@@ -97,6 +105,7 @@ export default function Meli({onClickResource}) {
             {eanLengthResult && (<EanResult type={eanTypeResult} length={eanLengthResult} valid={eanValidResult} />)}
           </div>
         </div>
+
       </div>}
 
       {/* Consulta Itens */}
@@ -117,24 +126,18 @@ export default function Meli({onClickResource}) {
 
 const styles = {
   h1Consult: {
-    fontSize: '20px',
-    width: '250px',
-    
-  },
-  h1Result: {
-    fontSize: '20px',
-    /* width: '250px', */
-    
+    fontSize: '15px',
+    fontWeight: 'bold'
   },
   flexRow: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     /* border: '1px solid lightgray', */
     borderRadius: '5px',
-    margin: '15px',
-    width: 'auto',
+/*     margin: '15px',
+ */    width: 'auto',
   },
   flexRowTwo: {
     display: 'flex',
@@ -144,37 +147,30 @@ const styles = {
     border: '1px solid lightgray',
     borderRadius: '5px',
     width: 'max-content',
-    padding: '20px'
-  },
-  flexRowResult: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    /*     padding: '30px',
-     */ margin: '15px',
-  },
-  input: {
-    width: '350px',
-  },
-  span: {
-    width: '150px',
-    marginLeft: '30px',
-  },
-  divInput: {
-    marginLeft: '30px',
+    padding: '10px'
   },
   buttonsMenu: {
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '15px',
-    width: 'auto',
+    padding: '5px',
     marginLeft: '20px',
-    marginTop: '15px',
-  },
+/*     marginTop: '15px',
+ */  },
   buttonsItems: {
     marginRight: '10px',
     marginBottom: '5px'
+  },
+  buttonsItemsConsult: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+/*     padding: '15px',
+ */    marginLeft: '20px',
+    marginTop: '15px',
   }
 }

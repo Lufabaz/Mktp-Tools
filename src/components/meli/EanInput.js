@@ -26,16 +26,13 @@ export default function EanInput({onInputEan, onEmptyInput}) {
           {/* Flex (lado a lado) */}
           <div>
             <div style={styles.flexRowTwo}>
-              <div>
-                <h1 style={styles.h1Consult}>Consulta Código de Barras:</h1>
-              </div>
-              <div style={styles.divInput} className="input-field col s12">
-                <input style={styles.input} id="ean" type="number" className="validate" onChange={handleInputEan} />
-                <label htmlFor="ean" className="active">
-                  <b>Insira aqui o código de barras para consulta.</b>
+              <div className="input-field">
+                <input style={styles.input} id="ean" type="number" className="validate" onChange={handleInputEan} /><br />
+                 <label htmlFor="ean" className="active">
+                  Insira um código de barras
                 </label>
                 <span className="helper-text">
-                  <i>Ex.: EAN, GTIN, UPC, ISBN, etc.</i>
+                  <i>Ex.: EAN, GTIN, UPC, ISBN, JAN, etc.</i>
                 </span>
               </div>
             </div>
@@ -48,43 +45,16 @@ export default function EanInput({onInputEan, onEmptyInput}) {
 
 const styles = {
   h1Consult: {
-    fontSize: '20px',
-    width: '250px',
-    marginBottom: '45px',
-  },
-  h1Result: {
-    fontSize: '20px',
-    /* width: '250px', */
-    marginBottom: '45px',
-  },
-  flexRow: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: '30px',
-    border: '1px solid lightgray',
-    borderRadius: '5px',
-    margin: '15px',
-    width: '970px',
+    fontSize: '15px',
+    fontWeight: 'bold'
   },
   flexRowTwo: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
-  },
-  flexRowResult: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    /*     padding: '30px',
-     */ margin: '15px',
   },
   input: {
-    width: '350px',
-  },
-  span: {
-    width: '150px',
-    marginLeft: '30px',
+    width: 'auto',
   },
   divInput: {
     marginLeft: '20px',

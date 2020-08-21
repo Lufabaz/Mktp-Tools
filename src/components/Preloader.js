@@ -11,20 +11,20 @@ export default function Preloader({onClickResource}) {
     return (
         <div>
             <div style={styles.divLoader}>
-            <div>Selecione um marketplace:</div>
-            <div style={styles.buttonsMenu}>
-              <button id="meli" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Meli</button>
-              <button id="magalu" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Magalu</button>
-              <button id="cnova" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Cnova</button>
-              <button id="carrefour" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Carrefour</button>
-              <button id="re" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Ricardo Eletro</button>
-              <button id="zoom" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Zoom</button>
-            </div>
-            <div style={{width: '60%', marginTop: '15px'}}>
-                <div className="progress">
-                    <div className="indeterminate"></div>
-                </div>
-            </div>
+              <div>Selecione um marketplace:</div>
+              <div style={styles.buttonsMenu}>
+                <button id="meli" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Meli</button>
+                <button id="magalu" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Magalu</button>
+                <button id="cnova" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Cnova</button>
+                <button id="carrefour" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Carrefour</button>
+                <button id="re" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Ricardo Eletro</button>
+                <button id="zoom" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Zoom</button>
+              </div>
+              <div style={{width: '60%', marginTop: '15px'}}>
+                  <div className="progress">
+                      <div className="indeterminate"></div>
+                  </div>
+              </div>
             </div>
         </div>
     )
