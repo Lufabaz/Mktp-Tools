@@ -6,21 +6,13 @@ export default function EanResult({type, length, valid}) {
 
   return (
     <div>
-
       <div style={styles.flexRow} >
-
-{/*         <div>
-          <h1 style={styles.h1Result}>Resultado:</h1>
-        </div> */}
-
         <div>
-          Tipo: <span style={{fontWeight: 'bold'}}>{type}</span> <br />
-          Digitos: <span style={{fontWeight: 'bold'}}>{length}</span> <br />
+          Tipo: <span style={styles.span}>{type}</span> <br />
+          Digitos: <span style={styles.span}>{length}</span> <br />
           Válido: <span style={{color: `${validColor}`, fontWeight: 'bold'}}>{valid}</span>
         </div>
-
       </div>
-
     </div>
   )
 }
@@ -35,6 +27,9 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     width: 'auto',
-    marginLeft: '10px'
+    marginLeft: '15px'
+  },
+  span: {
+    fontWeight: 'bold'
   }
 }

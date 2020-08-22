@@ -89,9 +89,9 @@ export default function Meli({onClickResource}) {
     </div>
        
 
-      {/* Flex (lado a lado) */}
+      {/* Flex Column) */}
       {barcodeComponent && <div style={styles.flexRow}>
-        {/* Consulta EAN */}
+        {/* EAN INPUT */}
         <div>
           <h1 style={styles.h1Consult}>Consulta Código de Barras:</h1>
         </div>
@@ -109,12 +109,24 @@ export default function Meli({onClickResource}) {
       </div>}
 
       {/* Consulta Itens */}
-      <div>
-        {itemsComponent && <InputItems onInputItem={handleFormSubmitItem} />}
-      </div>
-      <div>
-        {itemsGetResult && <ResultItems onGetResult={itemsGetResult} />}
-      </div>
+
+      {itemsComponent && <div style={styles.flexRow}>
+
+        <div>
+            <h1 style={styles.h1Consult}>Consulta de Itens:</h1>
+        </div>
+
+        <div style={styles.flexRowTwo}>
+          <div>
+            {itemsComponent && <InputItems onInputItem={handleFormSubmitItem} />}
+          </div>
+
+          <div>
+            {itemsGetResult && <ResultItems onGetResult={itemsGetResult} />}
+          </div>
+        </div>
+
+      </div>}
 
       {/* Consulta Categorias */}
       <div>
@@ -134,14 +146,11 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    /* border: '1px solid lightgray', */
-    borderRadius: '5px',
-/*     margin: '15px',
- */    width: 'auto',
+    width: 'auto',
   },
   flexRowTwo: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     border: '1px solid lightgray',
@@ -157,8 +166,7 @@ const styles = {
     justifyContent: 'center',
     padding: '5px',
     marginLeft: '20px',
-/*     marginTop: '15px',
- */  },
+  },
   buttonsItems: {
     marginRight: '10px',
     marginBottom: '5px'
@@ -169,8 +177,7 @@ const styles = {
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-/*     padding: '15px',
- */    marginLeft: '20px',
+    marginLeft: '20px',
     marginTop: '15px',
   }
 }

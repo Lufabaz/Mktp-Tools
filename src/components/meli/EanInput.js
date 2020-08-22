@@ -21,21 +21,16 @@ export default function EanInput({onInputEan, onEmptyInput}) {
   return (
     <div>
       {/* Formulário de inserção */}
-      <div>
+      <div style={styles.flexRowTwo}>
         <form onSubmit={handleFormSubmit}>
-          {/* Flex (lado a lado) */}
-          <div>
-            <div style={styles.flexRowTwo}>
-              <div className="input-field">
-                <input style={styles.input} id="ean" type="number" className="validate" onChange={handleInputEan} /><br />
-                 <label htmlFor="ean" className="active">
-                  Insira um código de barras
-                </label>
-                <span className="helper-text">
-                  <i>Ex.: EAN, GTIN, UPC, ISBN, JAN, etc.</i>
-                </span>
-              </div>
-            </div>
+          <div className="input-field">
+            <input style={styles.input} id="ean" type="number" className="validate" onChange={handleInputEan} /><br />
+            <label style={styles.defaultColorText} htmlFor="ean" className="active">
+              Insira um código de barras
+            </label>
+            <span style={styles.defaultColorText} className="helper-text">
+              <i>Ex.: EAN, GTIN, UPC, ISBN, JAN, etc</i>
+            </span>
           </div>
         </form>
       </div>
@@ -59,4 +54,7 @@ const styles = {
   divInput: {
     marginLeft: '20px',
   },
+  defaultColorText: {
+    color: 'black'
+  }
 }

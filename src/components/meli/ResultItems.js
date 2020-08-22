@@ -20,11 +20,7 @@ export default function ResultItems({onGetResult}) {
 
 const styles = {
     div: {
-        padding: '30px',
-        border: '1px solid lightgray',
-        borderRadius: '5px',
-        margin: '15px',
-        width: '970px'
+        width: '970px',
     },
     string: {
         color: 'green' 
