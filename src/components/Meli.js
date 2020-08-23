@@ -20,9 +20,9 @@ export default function Meli({onClickResource}) {
     /* Realiza a requisição na API do Meli através do módulo /Services/apiMeli.js */
     try {
       let jsonItem = await api.getItems(item,token)
-      let stringPretty = pretty.prettyJson(jsonItem)
+/*       let stringPretty = pretty.prettyJson(jsonItem) */
 /*       let highligth = pretty.syntaxHighlight(stringPretty) */
-      setItemsGetResult(stringPretty)
+      setItemsGetResult(jsonItem)
     } catch (err) {
       console.log(`Erro ao consultar EAN. Erro: ${err}`)
     }
@@ -88,7 +88,6 @@ export default function Meli({onClickResource}) {
       <button id="categ" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Categorias</button>
     </div>
        
-
       {/* Flex Column) */}
       {barcodeComponent && <div style={styles.flexRow}>
         {/* EAN INPUT */}
@@ -96,7 +95,7 @@ export default function Meli({onClickResource}) {
           <h1 style={styles.h1Consult}>Consulta Código de Barras:</h1>
         </div>
 
-        <div style={styles.flexRowTwo}>
+        <div style={styles.flexRowEan}>
           <div>
             <EanInput onInputEan={handleFormSubmitEan} onEmptyInput={clearResultEmpty} />
           </div>
@@ -151,6 +150,16 @@ const styles = {
   flexRowTwo: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid lightgray',
+    borderRadius: '5px',
+    width: 'max-content',
+    padding: '10px'
+  },
+  flexRowEan: {
+    display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     border: '1px solid lightgray',
