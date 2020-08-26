@@ -1,4 +1,6 @@
 import React from 'react'
+import css from './resultitems.module.css'
+
 /* import * as pretty from '../../Helpers/jsonBeauty.ts'
 import parse from 'html-react-parser' */
 import JSONPretty from 'react-json-pretty'
@@ -18,20 +20,16 @@ export default function ResultItems({onGetResult}) {
  */
 
     return (
-        <div>
+        <div className={css.content}>
             <hr style={styles.hr} />
-            <JSONPretty data={onGetResult} theme={acai}></JSONPretty>
+            <div className={css.tabcontents}>
+                <section>
+                    <span className={css.collapsible}>
+                        <JSONPretty data={onGetResult} theme={acai}></JSONPretty>
+                    </span>
+                </section>
+            </div>
         </div>
-
-
-/* {onGetResult.length > 0 && onGetResult.map((item) => {
-    return (
-        <div style={styles.div}>
-            {item}
-        </div>
-    )
-})} */
-
     )
 }
 

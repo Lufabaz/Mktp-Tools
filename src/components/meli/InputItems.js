@@ -39,12 +39,25 @@ export default function InputItems({onInputItem}) {
               </div>
             </form>
 
-{/*             <i onClick={handleAccessToken} style={{marginLeft: '15px'}} className="material-icons">vpn_key</i>*/}
-            <div className="tooltip">
-              <i onClick={handleAccessToken} style={{marginLeft: '15px'}} className="material-icons">vpn_key</i>
-              <span className="tooltiptext">Insira token (opcional)</span>
-            </div>
+            {/* ICONS: Check and key icon visible in center if enableInputToken is false */}
+            {!enableInputToken && <div style={styles.flexRowIcons}>
+              <div className="tooltipcheck">
+                <i onClick={handleFormSubmit} style={{ marginLeft: '15px', cursor: 'pointer' }} className="material-icons">check</i>
+                <span className="tooltiptextcheck" >Clique para consultar</span>
+              </div>
+              <div className="tooltip">
+                <i onClick={handleAccessToken} style={{ marginLeft: '15px', cursor: 'pointer' }} className="material-icons">vpn_key</i>
+                <span className="tooltiptext" >Insira token (opcional)</span>
+              </div>
+            </div>}
 
+            {/* ICONS: Check icon hidden in center if enableInputToken is true */}
+            {enableInputToken && <div style={styles.flexRowIcons}>
+              <div className="tooltip">
+                <i onClick={handleAccessToken} style={{ marginLeft: '15px', cursor: 'pointer' }} className="material-icons">vpn_key</i>
+                <span className="tooltiptext" >Insira token (opcional)</span>
+              </div>
+            </div>}
 
             {enableInputToken && <form style={{marginLeft: '15px'}} onSubmit={handleFormSubmit}>
               <div className="input-field">
@@ -58,6 +71,13 @@ export default function InputItems({onInputItem}) {
               </div>
             </form>}
 
+            {/* ICONS: Check icon visible in rigth if enableInputToken is true */}
+            {enableInputToken && <div style={styles.flexRowIcons}>
+              <div className="tooltipcheck">
+                <i onClick={handleFormSubmit} style={{ marginLeft: '15px', cursor: 'pointer' }} className="material-icons">check</i>
+                <span className="tooltiptextcheck" >Clique para consultar</span>
+              </div>
+            </div>}
           </div>
         </div>
     )
@@ -80,8 +100,13 @@ const styles = {
         flexDirection: 'row',
         alignItems: 'center',
     },
+    flexRowIcons: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
     input: {
-        width: 'auto'
+        width: 'auto',
+        marginTop: '15px'
     },
     divInput: {
         marginLeft: '20px'
