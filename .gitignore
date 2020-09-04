@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-!/node_modules/react-json-pretty/themes"
 
 # testing
 /coverage
