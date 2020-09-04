@@ -1,0 +1,31 @@
+
+.__json-pretty__ {
+    line-height: 1.3;
+    color: #505f7c;
+    background: #fafafa;
+    overflow: auto;
+    font-weight: bold;
+}
+.__json-pretty__ .__json-key__ {
+    color: #a12ead;
+    font-weight: bold;
+}
+.__json-pretty__ .__json-value__ {
+    color: #505f7c;
+    font-weight: bold;
+}
+.__json-pretty__ .__json-string__ {
+    color: #ff8000;
+    font-weight: bold;
+}
+.__json-pretty__ .__json-boolean__ {
+    color: #da063b;
+    font-weight: bold;
+}
+.__json-pretty-error__ {
+    line-height: 1.3;
+    color: #505f7c;
+    background: #fafafa;
+    overflow: auto;
+    font-weight: bold;
+}

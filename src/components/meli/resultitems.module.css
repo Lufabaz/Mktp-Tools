@@ -2,6 +2,11 @@
 	box-sizing: border-box;
 }
 
+hr {
+	width: auto;
+	border: 1px solid lightgray;
+}
+
 /* body {
 	font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
 	font-size: 13px;

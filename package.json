@@ -10,7 +10,6 @@
     "materialize-css": "^1.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-json-pretty": "^2.2.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.9.7"
   },
