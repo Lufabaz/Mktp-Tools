@@ -34,7 +34,7 @@ export default function InputItems({onInputItem}) {
                   <b>Insira o ID do anúncio</b>
                 </label>
                 <span style={styles.defaultColorText} className="helper-text">
-                  <i>Ex.: MLB1432853832.</i>
+                  <i>Ex.: MLB1432853832</i>
                 </span>
               </div>
             </form>

@@ -26,10 +26,10 @@ export default function EanInput({onInputEan, onEmptyInput}) {
           <div className="input-field">
             <input style={styles.input} id="ean" type="number" className="validate" onChange={handleInputEan} /><br />
             <label style={styles.defaultColorText} htmlFor="ean" className="active">
-              Insira um código de barras
+              <b>Insira um código de barras</b>
             </label>
             <span style={styles.defaultColorText} className="helper-text">
-              <i>Ex.: EAN, GTIN, UPC, ISBN, JAN, etc</i>
+              <i>Ex.: EAN, GTIN, UPC, ISBN, JAN e outros</i>
             </span>
           </div>
         </form>

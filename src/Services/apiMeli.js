@@ -35,4 +35,17 @@ const getItems = async (item,token) => {
 
 }
 
-export default { getEanValidator, getItems }
+const getCategory = async (category,item) => {
+
+  try {
+    const data = await fetch(`${uriMeli}/categories/${category}`)
+    const json = await data.json()
+    return json
+
+  } catch (err) {
+    console.log(err)    
+    return err
+  }
+}
+
+export default { getEanValidator, getItems, getCategory }

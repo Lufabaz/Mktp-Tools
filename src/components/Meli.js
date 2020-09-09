@@ -3,8 +3,8 @@ import EanResult from './meli/EanResult'
 import EanInput from './meli/EanInput'
 import InputItems from './meli/InputItems'
 import ResultItems from './meli/ResultItems'
+import CategoryInput from './meli/CategoryInput'
 import api from '../Services/apiMeli.js'
-import * as pretty from '../Helpers/jsonBeauty.ts'
 
 export default function Meli({onClickResource}) {
   const [eanTypeResult, setEanTypeResult] = useState('')
@@ -15,18 +15,28 @@ export default function Meli({onClickResource}) {
   const [itemsComponent, setItemsComponent] = useState(false)
   const [categoryComponent, setCategoryComponent] = useState(false)
 
+
+  const handleFormSubmitCategory = async (category,item) => {
+    /* Realiza a requisição na API do Meli através do módulo /Services/apiMeli.js */
+    try {
+      let jsonItem = await api.getCategory(category,item)
+      setCategoryComponent(jsonItem)
+      console.log(jsonItem)
+      
+    } catch (err) {
+      console.log(`Erro ao consultar EAN. Erro: ${err}`)
+    }
+  }
+
   const handleFormSubmitItem = async (item,token) => {
 
     /* Realiza a requisição na API do Meli através do módulo /Services/apiMeli.js */
     try {
       let jsonItem = await api.getItems(item,token)
-/*       let stringPretty = pretty.prettyJson(jsonItem) */
-/*       let highligth = pretty.syntaxHighlight(stringPretty) */
       setItemsGetResult(jsonItem)
     } catch (err) {
       console.log(`Erro ao consultar EAN. Erro: ${err}`)
     }
-
   }
 
   const handleFormSubmitEan = async (event) => {
@@ -52,6 +62,7 @@ export default function Meli({onClickResource}) {
 
   const clickResource = (event) => {
     event.preventDefault()
+
     if (event.target.id === "back") {
       let flag = false
       onClickResource(event.target.id,flag)
@@ -65,6 +76,10 @@ export default function Meli({onClickResource}) {
       setItemsComponent(true)
       setBarcodeComponent(false)
       setCategoryComponent(false)
+    } else if (event.target.id === "categ") {
+      setCategoryComponent(true)
+      setItemsComponent(false)
+      setBarcodeComponent(false)
     } else {
       setItemsComponent(false)
       setBarcodeComponent(false)
@@ -85,7 +100,7 @@ export default function Meli({onClickResource}) {
     <div style={styles.buttonsMenu}>
       <button id="barcode" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Código de Barras</button>
       <button id="items" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Itens</button>
-      <button id="categ" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Categorias</button>
+      <button id="categ" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Categorias</button>
     </div>
        
       {/* Flex Column) */}
@@ -128,9 +143,20 @@ export default function Meli({onClickResource}) {
       </div>}
 
       {/* Consulta Categorias */}
-      <div>
-        {categoryComponent && <div>categorias</div>}
-      </div>
+
+      {categoryComponent && <div style={styles.flexRow}>
+
+        <div>
+          <h1 style={styles.h1Consult}>Consulta de Categorias:</h1>
+        </div>
+        
+        <div style={styles.flexRowTwo}>
+          <div>
+            {categoryComponent && <CategoryInput onInputItem={handleFormSubmitCategory} /> }
+          </div>
+        </div>
+      </div>}
+
     </div>
   )
 }
