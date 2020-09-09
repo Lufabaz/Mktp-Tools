@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 
 export default function CategoryInput({onInputItem}) {
-    const [itemInputNumber, setItemInputNumber] = useState("")
-    const [categoryInputNumber, setCategoryInputNumber] = useState("")
+    const [itemInputNumber, setItemInputNumber] = useState(null)
+    const [categoryInputNumber, setCategoryInputNumber] = useState(null)
 
     const handleInputItem = ({target}) => {
-        if (target.id === 'categ') {
+        if (target.value.length >= 7 && target.value.length <= 10) {
+            console.log(target.value)
             setCategoryInputNumber(target.value)
-        } else if (target.id === 'item') {
+            setItemInputNumber(null)
+            return
+        } else if (target.value.length > 10) {
+            console.log(target.value)
             setItemInputNumber(target.value)
+            setCategoryInputNumber(null)
+            return
         }
     }
 
@@ -24,7 +30,7 @@ export default function CategoryInput({onInputItem}) {
                 <div className="input-field">
                     <input style={styles.input} id="categ" type="text" className="validate" required onChange={handleInputItem}/>
                     <label style={styles.defaultColorText} htmlFor="categ" className="active">
-                    <b>Insira o ID da categoria</b>
+                    <b>Informe o ID da categoria ou item</b>
                     </label>
                     <span style={styles.defaultColorText} className="helper-text">
                     <i>Ex.: MLB270276</i>

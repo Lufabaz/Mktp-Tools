@@ -21,8 +21,6 @@ const getItems = async (item,token) => {
     fullToken = `?access_token=${token}`
   }
 
-  console.log(`${uriMeli}/items/${item}/${fullToken}`)
-
   try {
     const data = await fetch(`${uriMeli}/items/${item}/${fullToken}`)
     const json = await data.json()
@@ -35,13 +33,12 @@ const getItems = async (item,token) => {
 
 }
 
-const getCategory = async (category,item) => {
+const getCategory = async (category) => {
+console.log('category '+category)
 
   try {
-    const data = await fetch(`${uriMeli}/categories/${category}`, { mode: 'same-origin' })
-    console.log(data)
+    const data = await fetch(`${uriMeli}/categories/${category}`, { mode: 'cors' })
     const json = await data.json()
-    console.log(json)
     return json
 
   } catch (err) {

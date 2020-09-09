@@ -5,26 +5,52 @@ import InputItems from './meli/InputItems'
 import ResultItems from './meli/ResultItems'
 import CategoryInput from './meli/CategoryInput'
 import api from '../Services/apiMeli.js'
+import CategoryResult from './meli/CategoryResult'
 
 export default function Meli({onClickResource}) {
   const [eanTypeResult, setEanTypeResult] = useState('')
   const [eanLengthResult, setEanLengthResult] = useState('')
   const [eanValidResult, setEanValidResult] = useState('')
-  const [itemsGetResult, setItemsGetResult] = useState('')
+  
   const [barcodeComponent, setBarcodeComponent] = useState(false)
+  
+  const [itemsGetResult, setItemsGetResult] = useState('')
   const [itemsComponent, setItemsComponent] = useState(false)
+  
   const [categoryComponent, setCategoryComponent] = useState(false)
+  const [categoryGetResult, setCategoryGetResult] = useState('')
+  const [categoryGetByItem, setCategoryGetByItem] = useState('')
 
 
   const handleFormSubmitCategory = async (category,item) => {
-    /* Realiza a requisição na API do Meli através do módulo /Services/apiMeli.js */
-    try {
-      let jsonItem = await api.getCategory(category,item)
-      setCategoryComponent(jsonItem)
-      console.log(jsonItem)
+    
+    if (item) {
+      console.log(item)
+        try {
+          let jsonItem = await api.getItems(item,null)
+          try {
+            let jsonCategory = await api.getCategory(jsonItem.category_id)
+            setCategoryGetResult(jsonCategory)
+            return
       
-    } catch (err) {
-      console.log(`Erro ao consultar EAN. Erro: ${err}`)
+          } catch (err) {
+            console.log(`Erro ao consultar EAN. Erro: ${err}`)
+          }
+
+        } catch (err) {
+          console.log(`Erro ao consultar categoria do item. Erro: ${err}`)
+        }
+    }
+    
+    if (category) {
+      console.log(category)
+      try {
+        let jsonCategory = await api.getCategory(category)
+        setCategoryGetResult(jsonCategory)
+  
+      } catch (err) {
+        console.log(`Erro ao consultar a categoria informada. Erro: ${err}`)
+      }
     }
   }
 
@@ -153,6 +179,9 @@ export default function Meli({onClickResource}) {
         <div style={styles.flexRowTwo}>
           <div>
             {categoryComponent && <CategoryInput onInputItem={handleFormSubmitCategory} /> }
+          </div>
+          <div>
+            {categoryGetResult && <CategoryResult onGetResult={categoryGetResult} /> }
           </div>
         </div>
       </div>}

@@ -1,10 +1,9 @@
 import React from 'react'
-import css from './resultitems.module.css'
+import css from './categoryresult.module.css'
 import JSONPretty from '../../Helpers/react-json-pretty'
 import acai from '../../Helpers/react-json-pretty/themes/acai.css'
 
-export default function ResultItems({onGetResult}) {
-
+export default function CategoryResult({ onGetResult }) {
     return (
         <div className={css.content}>
             <hr style={css.hr} />
