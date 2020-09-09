@@ -38,8 +38,10 @@ const getItems = async (item,token) => {
 const getCategory = async (category,item) => {
 
   try {
-    const data = await fetch(`${uriMeli}/categories/${category}`)
+    const data = await fetch(`${uriMeli}/categories/${category}`, { mode: 'no-cors' })
+    console.log(data)
     const json = await data.json()
+    console.log(json)
     return json
 
   } catch (err) {
