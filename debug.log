@@ -15,3 +15,7 @@
 [0811/170254.012:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: O pipe foi finalizado. (0x6D)
 [0812/215202.632:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
 [0812/215202.699:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: O pipe foi finalizado. (0x6D)
+[0911/211614.162:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[0911/211614.296:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: O pipe foi finalizado. (0x6D)
+[0911/212904.144:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[0911/212904.312:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: O pipe foi finalizado. (0x6D)

@@ -6,6 +6,7 @@ import ResultItems from './meli/ResultItems'
 import CategoryInput from './meli/CategoryInput'
 import api from '../Services/apiMeli.js'
 import CategoryResult from './meli/CategoryResult'
+import CategoryResumeResult from './meli/CategoryResumeResult'
 
 export default function Meli({onClickResource}) {
   const [eanTypeResult, setEanTypeResult] = useState('')
@@ -180,6 +181,9 @@ export default function Meli({onClickResource}) {
           <div>
             {categoryComponent && <CategoryInput onInputItem={handleFormSubmitCategory} /> }
           </div>
+{/*           <div>
+            {categoryGetResult && <CategoryResumeResult onGetResult={categoryGetResult} /> }
+          </div> */}
           <div>
             {categoryGetResult && <CategoryResult onGetResult={categoryGetResult} /> }
           </div>

@@ -14,6 +14,7 @@ export default function Preloader({onClickResource}) {
               <div>Selecione um marketplace:</div>
               <div style={styles.buttonsMenu}>
                 <button id="meli" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Meli</button>
+                <button id="skyhub" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">SkyHub</button>
                 <button id="magalu" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Magalu</button>
                 <button id="cnova" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Cnova</button>
                 <button id="carrefour" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Carrefour</button>

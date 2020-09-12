@@ -30,13 +30,20 @@ export default function CategoryInput({onInputItem}) {
                 <div className="input-field">
                     <input style={styles.input} id="categ" type="text" className="validate" required onChange={handleInputItem}/>
                     <label style={styles.defaultColorText} htmlFor="categ" className="active">
-                    <b>Informe o ID da categoria ou item</b>
+                    <span><b>ID da categoria ou item</b></span>
                     </label>
                     <span style={styles.defaultColorText} className="helper-text">
-                    <i>Ex.: MLB270276</i>
+                    <i>Ex.: MLB270276, MLB1432853832</i>
                     </span>
                 </div>
                 </form>
+                            {/* ICONS: Check icon hidden in center if enableInputToken is true */}
+             <div style={styles.flexRowIcons}>
+             <div className="tooltipcheck">
+                <i onClick={handleFormSubmit} style={{ marginLeft: '15px', cursor: 'pointer' }} className="material-icons">check</i>
+                <span className="tooltiptextcheck" >Clique para consultar</span>
+              </div>
+                </div>
             </div>
         </div>
     )
@@ -71,7 +78,7 @@ const styles = {
         marginLeft: '20px'
     },
     defaultColorText: {
-        color: 'black'
+        color: 'black',
     },
     tooltip: {
       visibility: 'hidden',

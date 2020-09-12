@@ -31,7 +31,7 @@ export default function InputItems({onInputItem}) {
               <div className="input-field">
                 <input style={styles.input} id="item" type="text" className="validate" required onChange={handleInputItem}/>
                 <label style={styles.defaultColorText} htmlFor="item" className="active">
-                  <b>Insira o ID do anúncio</b>
+                  <b>ID do anúncio (MLB)</b>
                 </label>
                 <span style={styles.defaultColorText} className="helper-text">
                   <i>Ex.: MLB1432853832</i>
