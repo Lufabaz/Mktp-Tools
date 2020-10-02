@@ -19,7 +19,7 @@ export default function Preloader({onClickResource}) {
                 <button id="cnova" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Cnova</button>
                 <button id="carrefour" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Carrefour</button>
                 <button id="re" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Ricardo Eletro</button>
-                <button id="zoom" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small disabled">Zoom</button>
+                <button id="zoom" onClick={clickResource} style={styles.buttonsItems} className="waves-effect waves-light btn-small">Zoom</button>
               </div>
               <div style={{width: '60%', marginTop: '15px'}}>
                   <div className="progress">

@@ -181,7 +181,7 @@ export default function Meli({onClickResource}) {
           <div>
             {categoryComponent && <CategoryInput onInputItem={handleFormSubmitCategory} /> }
           </div>
-{/*           <div>
+            {/*           <div>
             {categoryGetResult && <CategoryResumeResult onGetResult={categoryGetResult} /> }
           </div> */}
           <div>

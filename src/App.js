@@ -1,35 +1,44 @@
 import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import Meli from './components/Meli'
+import Skyhub from './components/Skyhub'
 import Preloader from './components/Preloader'
+import Zoom from './components/Zoom'
 
 export default function App() {
   const [ activeMeli, setActiveMeli ] = useState(false)
   const [ activeCnova, setActiveCnova ] = useState(false)
-  const [ activeMagalu, setActiveMagalu ] = useState(false)
+  const [ activeSkyhub, setActiveSkyhub ] = useState(false)
+  const [ activeZoom, setActiveZoom ] = useState(false)
  
   const activeResource = (id,flag) => {
     if (id === "meli") {
       setActiveMeli(flag)
       setActiveCnova(false)
-      setActiveMagalu(false)
-    } /* else if (id === "cnova") {
-      setActiveCnova(flag)
+      setActiveSkyhub(false)
+
+    } else if (id === "skyhub") {
+      setActiveSkyhub(flag)
       setActiveMeli(false)
-      setActiveMagalu(false)
-    } else if (id === "magalu") {
-      setActiveMagalu(flag)
       setActiveCnova(false)
+
+    } else if (id === "zoom") {
+      setActiveZoom(flag)
+      setActiveSkyhub(false)
       setActiveMeli(false)
-    }*/
-      else if (id === "back") {
-      setActiveMagalu(false)
       setActiveCnova(false)
+
+    } else if (id === "back") {
       setActiveMeli(false)
+      setActiveCnova(false)
+      setActiveSkyhub(false)
+      setActiveZoom(false)
+
     } else {
-      setActiveMagalu(false)
-      setActiveCnova(false)
       setActiveMeli(false)
+      setActiveCnova(false)
+      setActiveSkyhub(false)
+      setActiveZoom(false)
       window.alert("As ferramentas para esse marketplace ainda estão em desenvolvimento.")
     }
   }
@@ -38,10 +47,11 @@ export default function App() {
     return (
         <div> 
             <Navbar onClickResource={activeResource} />
-            {!activeMeli && !activeCnova && !activeMagalu && <Preloader onClickResource={activeResource} />}
+            {!activeMeli && !activeCnova && !activeSkyhub && !activeZoom && <Preloader onClickResource={activeResource} />}
             {activeMeli && <Meli onClickResource={activeResource}/>}
+            {activeSkyhub && <Skyhub onClickResource={activeResource} />}
             {activeCnova && <div><span>Cnova</span><br /></div>}
-            {activeMagalu && <div><span>Magalu</span><br /></div>}
+            {activeZoom && <Zoom onClickResource={activeResource} />}
         </div>
     )
 }
