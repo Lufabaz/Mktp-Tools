@@ -1,4 +1,4 @@
-const uriSkyhub = 'https://api.skyhub.com.br'
+/* const uriSkyhub = 'https://api.skyhub.com.br'
 
 const postTestOrders = async () => {
 
@@ -24,4 +24,4 @@ const postTestOrders = async () => {
     return err
   }
 
-}
+} */
