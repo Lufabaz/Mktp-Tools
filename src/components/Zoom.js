@@ -43,7 +43,7 @@ export default function Zoom({onClickResource}) {
       "orderNumber": inputOrderNumber,
       "status": inputNotifyStatus,
       "controller": "zoom_marketplace_notifications",
-      "action": "notify",
+      "action": "notify", 
       "zoom_marketplace_id": inputNotificationId,
       "zoom_marketplace_notification": {
           "orderNumber": inputOrderNumber,
@@ -55,21 +55,29 @@ export default function Zoom({onClickResource}) {
   }
 
   const fetchApiSkyHubForZoom = (url,body) => {
+    console.log(url)
+    console.log(body)
 
     const postApi = async () => {
       fetch(url,{
-      method: "POST",
-      mode: "cors",
-      cache: "default",
+      method: 'POST',
+      mode: 'cors',
+      cache: 'default',
       body: body,
       headers: {
+        'Access-Control-Allow-Headers': 'Content-Type',
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-      }).then(() => { 
-        console.log("sucesso")
+      }).then((response) => { 
+        console.log(response.headers.get('Content-Type'));
+        console.log(response.headers.get('Date'));
+    
+        console.log(response.status);
+        console.log(response.type);
+        console.log(response.url);
       }).catch((err) => {
-        console.log("erro: "+ err)
+        console.log("fetch error: "+ err)
       })
     }
     postApi()
@@ -130,15 +138,21 @@ export default function Zoom({onClickResource}) {
             </label>
 
             <p>
-              <label htmlFor="pending">
-                <input type="radio" id="pending" name="statusNotify" value="PendingPayment" onChange={handleInputItem}/>
+              <label htmlFor="New">
+                <input type="radio" id="New" name="statusNotify" value="New" onChange={handleInputItem}/>
                 <span>Status Pendente</span>
               </label><br/>
             </p>
             <p>
-              <label htmlFor="approved">
-                <input type="radio" id="approved" name="statusNotify" value="ApprovedPayment" onChange={handleInputItem}/>
+              <label htmlFor="ApprovedPayment">
+                <input type="radio" id="ApprovedPayment" name="statusNotify" value="ApprovedPayment" onChange={handleInputItem}/>
                 <span>Status Aprovado</span>
+              </label><br/>
+            </p>
+            <p>
+              <label htmlFor="Canceled">
+                <input type="radio" id="Canceled" name="statusNotify" value="Canceled" onChange={handleInputItem}/>
+                <span>Status Cancelado</span>
               </label><br/>
             </p>
 

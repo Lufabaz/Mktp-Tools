@@ -24,4 +24,3 @@ yarn-error.log*
 procfile
 yarn.lock
 jsconfig.json
-/src/Services/apiSkyhub.js

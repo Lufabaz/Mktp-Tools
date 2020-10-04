@@ -39,25 +39,6 @@ export default function Skyhub() {
   )
 }
 
-{/*           <form style={styles.flexRowTwo}>
-
-            <div>
-              <div className="input-field">
-              <input style={{width: 'auto'}} id="login" type="text" className="validate"/>
-                <label className="active" for="login">Login</label>
-              </div>
-            </div>
-
-            <div>
-              <div className="input-field">
-                <input style={{width: 'auto'}} id="token" type="text" className="validate"/>
-                <label className="active" for="token">Token</label>
-              </div>
-            </div>
-
-          </form> */}
-    
-
 const styles = {
   h1Consult: {
     fontSize: '15px',
