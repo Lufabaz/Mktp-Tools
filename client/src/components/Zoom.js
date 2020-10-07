@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+/* import * as api from '../Services/skyhub' */
+import axios from 'axios';
+
 
 export default function Zoom({onClickResource}) {
 
   const [inputNotificationId, setInputNotificationId] = useState(null)
   const [inputOrderNumber, setInputOrderNumber] = useState(null)
   const [inputNotifyStatus, setInputNotifyStatus] = useState(null)
-  const [resultNotifyStatus, setResultNotifyStatus] = useState(null)
+/*   const [resultNotifyStatus, setResultNotifyStatus] = useState(null) */
 
   const clickResource = (event) => {
       event.preventDefault()
@@ -34,12 +37,17 @@ export default function Zoom({onClickResource}) {
     }
 }
 
-  const clickSubmitNotification = (event) => {
+  const clickSubmitNotification = async (event) => {
     event.preventDefault()
-    
-    let urlSkyhubZoomNotification = `https://in.skyhub.com.br/zoom_marketplace/${inputNotificationId}/notification`
 
-    let bodyNotification = {
+    const api = axios.create({ baseURL: 'http://localhost:3001' });
+
+    const response = await api.post(`/postnotificationzoom/zoom_marketplace/${inputNotificationId}/${inputNotifyStatus}/${inputOrderNumber}`, null);
+    
+    console.log(response)
+    //let urlSkyhubZoomNotification = `https://in.skyhub.com.br/zoom_marketplace/${inputNotificationId}/  `
+
+/*     let bodyNotification = {
       "orderNumber": inputOrderNumber,
       "status": inputNotifyStatus,
       "controller": "zoom_marketplace_notifications",
@@ -51,18 +59,25 @@ export default function Zoom({onClickResource}) {
       }
     }
 
-    fetchApiSkyHubForZoom(urlSkyhubZoomNotification,bodyNotification)
+    fetchApiSkyHubForZoom(inputNotificationId,bodyNotification) */
   }
 
-  const fetchApiSkyHubForZoom = (url,body) => {
-    console.log(url)
+/*   const fetchApiSkyHubForZoom = async (idZoomNotication,body) => {
+    console.log(idZoomNotication)
     console.log(body)
 
-    const postApi = async () => {
+    const responseNotifyZoom = await api.postZoomNotification(idZoomNotication,body).then((response) => {
+      console.log(response)
+    }).catch((error) => {
+      console.log(error)
+    })
+    setResultNotifyStatus(responseNotifyZoom) */
+
+/*     const postApi = async () => {
       fetch(url,{
       method: 'POST',
-      mode: 'cors',
-      cache: 'default',
+      mode: 'no-cors',
+      cache: 'no-cache',
       body: body,
       headers: {
         'Access-Control-Allow-Headers': 'Content-Type',
@@ -80,7 +95,7 @@ export default function Zoom({onClickResource}) {
         console.log("fetch error: "+ err)
       })
     }
-    postApi()
+    postApi() */
 
 /*     try {
 
@@ -91,7 +106,7 @@ export default function Zoom({onClickResource}) {
       console.log("erro: " +err)
       setResultNotifyStatus(err)
     } */
-  }
+/*   } */
 
   return (
     <div>
@@ -163,9 +178,9 @@ export default function Zoom({onClickResource}) {
           </form>
         </div>
 
-{/*         <div>
+{/*         {<div>
           {resultNotifyStatus && <span>{resultNotifyStatus}</span>}
-        </div> */}
+        </div>} */}
 
       </div>
     </div>
