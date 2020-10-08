@@ -55,3 +55,10 @@ export default function App() {
         </div>
     )
 }
+
+//     "heroku-postbuild": "npm install && npm run build && cd backend && npm install && npm start"
+
+
+/*   "engines": {
+  "node": "12.18.4"
+} */

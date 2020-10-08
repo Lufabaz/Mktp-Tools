@@ -40,73 +40,13 @@ export default function Zoom({onClickResource}) {
   const clickSubmitNotification = async (event) => {
     event.preventDefault()
 
-    const api = axios.create({ baseURL: 'http://localhost:3001' });
+    const API_URL = process.env.APIURL || 'http://localhost:3001'
+    const api = axios.create({ baseURL: API_URL })
 
     const response = await api.post(`/postnotificationzoom/zoom_marketplace/${inputNotificationId}/${inputNotifyStatus}/${inputOrderNumber}`, null);
     
     console.log(response)
-    //let urlSkyhubZoomNotification = `https://in.skyhub.com.br/zoom_marketplace/${inputNotificationId}/  `
-
-/*     let bodyNotification = {
-      "orderNumber": inputOrderNumber,
-      "status": inputNotifyStatus,
-      "controller": "zoom_marketplace_notifications",
-      "action": "notify", 
-      "zoom_marketplace_id": inputNotificationId,
-      "zoom_marketplace_notification": {
-          "orderNumber": inputOrderNumber,
-          "status": inputNotifyStatus
-      }
-    }
-
-    fetchApiSkyHubForZoom(inputNotificationId,bodyNotification) */
   }
-
-/*   const fetchApiSkyHubForZoom = async (idZoomNotication,body) => {
-    console.log(idZoomNotication)
-    console.log(body)
-
-    const responseNotifyZoom = await api.postZoomNotification(idZoomNotication,body).then((response) => {
-      console.log(response)
-    }).catch((error) => {
-      console.log(error)
-    })
-    setResultNotifyStatus(responseNotifyZoom) */
-
-/*     const postApi = async () => {
-      fetch(url,{
-      method: 'POST',
-      mode: 'no-cors',
-      cache: 'no-cache',
-      body: body,
-      headers: {
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-      }).then((response) => { 
-        console.log(response.headers.get('Content-Type'));
-        console.log(response.headers.get('Date'));
-     
-        console.log(response.status);
-        console.log(response.type);
-        console.log(response.url);
-      }).catch((err) => {
-        console.log("fetch error: "+ err)
-      })
-    }
-    postApi() */
-
-/*     try {
-
-      console.log("sucesso")
-      setResultNotifyStatus(postApi)
-      
-    } catch (err) {
-      console.log("erro: " +err)
-      setResultNotifyStatus(err)
-    } */
-/*   } */
 
   return (
     <div>
