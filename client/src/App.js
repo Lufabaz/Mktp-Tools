@@ -56,7 +56,7 @@ export default function App() {
     )
 }
 
-//     "heroku-postbuild": "npm install && npm run build && cd backend && npm install && npm start"
+//     "heroku-postbuild": "npm install && npm run build"
 
 
 /*   "engines": {

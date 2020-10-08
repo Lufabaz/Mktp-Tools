@@ -20,12 +20,17 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 //  Rota raiz
-app.get('/', (_, response) => {
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'client/index.js'));
+});
+
+/* app.get('/', (_, response) => {
   response.send({
     message:
       'API em execução. Utilize através do front.',
   });
-});
+}); */
 
 app.post('/postnotificationzoom/:zoom_marketplace/:idZoomNotify/:notifyStatus/:orderNumber', (req,res)=>{
     const { zoom_marketplace, idZoomNotify, notifyStatus, orderNumber } = req.params

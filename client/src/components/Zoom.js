@@ -40,7 +40,7 @@ export default function Zoom({onClickResource}) {
   const clickSubmitNotification = async (event) => {
     event.preventDefault()
 
-    const API_URL = process.env.APIURL || 'http://localhost:3001'
+    const API_URL = process.env.APIURL || 'https://mktp-tools.herokuapp.com:3001'
     const api = axios.create({ baseURL: API_URL })
 
     const response = await api.post(`/postnotificationzoom/zoom_marketplace/${inputNotificationId}/${inputNotifyStatus}/${inputOrderNumber}`, null);
