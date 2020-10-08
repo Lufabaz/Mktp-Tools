@@ -7,6 +7,8 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 const app = express()
+const __dirname = path.resolve();
+
 
 /* app.listen(3001, () => {
   console.log(`Servidor iniciado na porta 3001`);
