@@ -2,7 +2,7 @@
   "name": "app-mktp-tools-v0.28-lufabaz",
   "version": "0.2.8",
   "private": true,
-  "proxy": "https://mktp-tools.herokuapp.com:3001",
+  "proxy": "https://mktp-tools.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.3.2",
