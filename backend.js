@@ -7,8 +7,8 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 const app = express()
-const __dirname = path.resolve();
-
+/* const __dirname = path.resolve();
+ */
 
 /* app.listen(3001, () => {
   console.log(`Servidor iniciado na porta 3001`);
@@ -17,7 +17,8 @@ const __dirname = path.resolve();
 app.use(cors())
 
 // Vinculando o React
-app.use(express.static(path.join(__dirname, 'client/build')));
+/* app.use(express.static(path.join(__dirname, 'client/build'))); */
+app.use(express.static('client/build'));
 
 /* app.get('/', (_, response) => {
   response.send({
