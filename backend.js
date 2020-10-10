@@ -49,7 +49,7 @@ app.post('/postnotificationzoom/:zoom_marketplace/:idZoomNotify/:notifyStatus/:o
 
     return res.json({"Response": response.status})
 })
-
+ 
 const APP_PORT = process.env.PORT || 3001;
 app.listen(APP_PORT, () => {
   console.log(`Servidor iniciado na porta ${APP_PORT}`);
