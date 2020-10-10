@@ -19,12 +19,6 @@ app.use(cors())
 // Vinculando o React
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-//  Rota raiz
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'client/index.js'));
-});
-
 /* app.get('/', (_, response) => {
   response.send({
     message:
