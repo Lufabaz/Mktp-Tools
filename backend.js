@@ -7,12 +7,6 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 const app = express()
-/* const __dirname = path.resolve();
- */
-
-/* app.listen(3001, () => {
-  console.log(`Servidor iniciado na porta 3001`);
-}); */
 
 app.use(cors())
 
@@ -54,7 +48,7 @@ app.post('/postnotificationzoom/:zoom_marketplace/:idZoomNotify/:notifyStatus/:o
     return res.json({"Response": response.status})
 })
  
-const APP_PORT = process.env.PORT || 5000;
+const APP_PORT = process.env.PORT || 3001;
 app.listen(APP_PORT, () => {
   console.log(`Servidor iniciado na porta ${APP_PORT}`);
 });

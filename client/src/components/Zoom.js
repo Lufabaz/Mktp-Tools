@@ -40,7 +40,7 @@ export default function Zoom({onClickResource}) {
   const clickSubmitNotification = async (event) => {
     event.preventDefault()
 
-    const API_URL = process.env.APIURL || 'http://localhost:5000'
+    const API_URL = process.env.APIURL || 'http://localhost:3001'
     console.log(API_URL)
 
     const api = axios.create({ baseURL: API_URL })
