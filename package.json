@@ -4,8 +4,8 @@
   "description": "",
   "main": "backend.js",
   "scripts": {
-    "server": "nodemon backend.js",
-    "start": "nodemon --experimental-modules backend.js",
+    "server": "node --experimental-modules backend.js",
+    "start": "node --experimental-modules backend.js",
     "postinstall": "cd client && npm install && npm run build && npm start"
   },
   "author": "",
