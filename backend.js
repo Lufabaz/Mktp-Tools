@@ -20,15 +20,16 @@ app.use(cors())
 /* app.use(express.static(path.join(__dirname, 'client/build'))); */
 app.use(express.static('client/build'));
 
-/* app.get('/', (_, response) => {
+app.get('/api/', (_, response) => {
   response.send({
     message:
-      'API em execução. Utilize através do front.',
+      'API em execução. Uitlize através do front: https://mktp-tools.herokuapp.com/',
   });
-}); */
+});
 
 app.post('/postnotificationzoom/:zoom_marketplace/:idZoomNotify/:notifyStatus/:orderNumber', (req,res)=>{
     const { zoom_marketplace, idZoomNotify, notifyStatus, orderNumber } = req.params
+    console.log(req.params)
 
     const bodyNotificationZoom = {
         "orderNumber": orderNumber,
@@ -45,12 +46,15 @@ app.post('/postnotificationzoom/:zoom_marketplace/:idZoomNotify/:notifyStatus/:o
       console.log(bodyNotificationZoom)
     
     const api = axios.create({ baseURL: 'https://in.skyhub.com.br' })
+    console.log(api)
+
     const response = api.post(`/${zoom_marketplace}/${idZoomNotify}/notification`, bodyNotificationZoom);
+    console.log(response)
 
     return res.json({"Response": response.status})
 })
  
-const APP_PORT = process.env.PORT || 3001;
+const APP_PORT = process.env.PORT || 5000;
 app.listen(APP_PORT, () => {
   console.log(`Servidor iniciado na porta ${APP_PORT}`);
 });

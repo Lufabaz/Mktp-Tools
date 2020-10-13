@@ -40,8 +40,12 @@ export default function Zoom({onClickResource}) {
   const clickSubmitNotification = async (event) => {
     event.preventDefault()
 
-    const API_URL = process.env.APIURL || 'http://localhost:3001'
+    const API_URL = process.env.APIURL || 'http://localhost:5000'
+    console.log(API_URL)
+
     const api = axios.create({ baseURL: API_URL })
+
+    console.log(api)
 
     const response = await api.post(`/postnotificationzoom/zoom_marketplace/${inputNotificationId}/${inputNotifyStatus}/${inputOrderNumber}`, null);
     
