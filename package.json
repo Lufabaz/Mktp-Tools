@@ -5,8 +5,9 @@
   "main": "backend.js",
   "scripts": {
     "server": "nodemon backend.js",
-    "start": "node --experimental-modules backend.js",
-    "heroku-postbuild": "cd client && npm install && npm run build && npm start"
+    "start": "nodemon --experimental-modules backend.js",
+    "heroku-postbuild": "cd client && npm install && npm run build && npm start && npm run start:prod",
+    "start:prod": "npm start"
   },
   "author": "",
   "license": "MIT",

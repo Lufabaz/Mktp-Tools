@@ -24,8 +24,8 @@ app.get('/api/', (_, response) => {
   response.send({
     message:
       'API em execução. Uitlize através do front: https://mktp-tools.herokuapp.com/',
-  });
-});
+  })
+})
 
 app.post('/postnotificationzoom/:zoom_marketplace/:idZoomNotify/:notifyStatus/:orderNumber', (req,res)=>{
     const { zoom_marketplace, idZoomNotify, notifyStatus, orderNumber } = req.params
